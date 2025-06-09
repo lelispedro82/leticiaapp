@@ -5,6 +5,7 @@ import io
 
 # Título
 st.title("Empresas por Ano, Setor, Tipo de OC e Desempenho")
+st.write("Tipos de OC: oc1, oc2, oc3, oc4, oc41, e variáveis financeiras")
 
 # Carregamento dos dados
 try:

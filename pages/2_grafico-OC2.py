@@ -9,7 +9,8 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Título do app
-st.title("Análise de Crescimento dos Ativos vs. Resíduos")
+st.title("📈 Análise de Crescimento dos Ativos vs. Resíduos")
+st.write("Gráfico de Crescimento dos Ativos em relação aos Resíduos da Regressão MQO por Setor e Ano")
 
 # Carregar os dados do Excel diretamente
 df = pd.read_excel("dados_r.xlsx")
