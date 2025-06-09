@@ -1,23 +1,34 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 df = pd.read_excel("dados_r.xlsx")
 
 st.title("📊 Excesso de Confiança e Desempenho financeiro por ano e por setor")
 st.write("Este é o produto técnico com os dados da dissertação da Letícia 🎉")
 
-# === Filtros no Sidebar ===
+# === Filtros no Sidebar teste3 ===
 st.sidebar.header("🔎 Filtros Personalizados")
 
+# Escolha da variável para filtrar (oc1, oc2, oc3, oc4)
 coluna_filtro = st.sidebar.selectbox("Escolha a variável de filtro:", ['oc1', 'oc2', 'oc3', 'oc4'])
+
+# Valores únicos da variável selecionada
 opcoes = sorted(df[coluna_filtro].dropna().unique())
 valores_selecionados = st.sidebar.multiselect(f"Valores de {coluna_filtro}:", opcoes, default=opcoes)
 
+
+# Filtro por variável de desempenho
 variavel_desempenho = st.sidebar.selectbox("Variável de desempenho:", ['wqtobin', 'wroa', 'wroaebit', 'wroe', 'wmgop'])
+
+# Filtro por ano
 anos = st.sidebar.multiselect("Selecione os anos:", sorted(df['ano'].unique()), default=sorted(df['ano'].unique()))
+
+# Filtro por setor
 setores = st.sidebar.multiselect("Selecione os setores:", sorted(df['setor'].unique()), default=sorted(df['setor'].unique()))
 
+# Aplicar os filtros
 df_filtrado = df[
     (df[coluna_filtro].isin(valores_selecionados)) &
     (df['ano'].isin(anos)) &
@@ -26,6 +37,7 @@ df_filtrado = df[
 
 if variavel_desempenho in df_filtrado.columns:
     st.subheader(f"📉 Desempenho por Ano e Grupo de {coluna_filtro.upper()}")
+
     df_grouped = df_filtrado.groupby(['ano', coluna_filtro])[variavel_desempenho].mean().reset_index()
 
     fig3, ax3 = plt.subplots(figsize=(10, 6))
