@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_excel("dados_r.xlsx")
+df = pd.read_excel("dados.xlsx")
 
 st.title("📊 Excesso de Confiança Gerencial e Desempenho financeiro por ano e por setor")
 st.write("Dados descritivos")

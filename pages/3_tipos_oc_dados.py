@@ -9,9 +9,9 @@ st.write("Tipos de OC: oc1, oc2, oc3, oc4, oc41, e variáveis financeiras")
 
 # Carregamento dos dados
 try:
-    df = pd.read_excel("dados_r.xlsx")
+    df = pd.read_excel("dados.xlsx")
 except FileNotFoundError:
-    st.error("Arquivo 'dados_r.xlsx' não encontrado.")
+    st.error("Arquivo 'dados.xlsx' não encontrado.")
     st.stop()
 
 # Configurações

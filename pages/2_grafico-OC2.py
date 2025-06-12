@@ -13,7 +13,7 @@ st.title("📈 Análise de Crescimento dos Ativos vs. Resíduos")
 st.write("Gráfico de Crescimento dos Ativos em relação aos Resíduos da Regressão MQO por Setor e Ano")
 
 # Carregar os dados do Excel diretamente
-df = pd.read_excel("dados_r.xlsx")
+df = pd.read_excel("dados.xlsx")
 
 # Interface para seleção de setor e ano
 setores_disponiveis = df["setor"].dropna().unique()
